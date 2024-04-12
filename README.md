@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [V] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [V] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [V] Commit: `Create Notification service struct skeleton.`
+    -   [V] Commit: `Implement subscribe function in Notification service.`
+    -   [V] Commit: `Implement subscribe function in Notification controller.`
+    -   [V] Commit: `Implement unsubscribe function in Notification service.`
+    -   [V] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [V] Commit: `Implement receive_notification function in Notification service.`
+    -   [V] Commit: `Implement receive function in Notification controller.`
+    -   [V] Commit: `Implement list_messages function in Notification service.`
+    -   [V] Commit: `Implement list function in Notification controller.`
+    -   [V] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -90,3 +90,9 @@ RwLock<> (read-write lock) perlu digunakan karena memungkinkan untuk banyak thre
 2. In this tutorial, we used lazy_static external library to define Vec and DashMap as a “static” variable. Compared to Java where we can mutate the content of a static variable via a static function, why did not Rust allow us to do so? <br>
 Secara default pada Rust, variabel static bersifat immutable untuk menghindari data races dan menjaga thread safety.
 #### Reflection Subscriber-2
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code. <br>
+Terdapat beberapa hal di dalam `src/lib.rs`. Pertama, terdapat inisialisasi variabel static di `lazy_static` seperti `REQWEST_CLIENT` yang dapat digunakan oleh keseluruhan aplikasi untuk membuat HTTP request dan `APP_CONFIG` untuk menyimpan konfigurasi aplikasi. Selanjutnya, terdapat function `compose_error_response` untuk membuat pesan error custom.
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system? <br>
+Observer pattern mempermudah proses penambahan atau scaling subscribers karena cukup melakukan register dengan menggunakan method `subscribe` dan ditambahkan ke list subscribers yang akan selalu mendapatkan update dari publisher
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project). <br>
+Postman tentunya akan sangat berguna dalam testing untuk melihat apakah API yang saya buat sesuai dengan mengirimkan HTTP request dan melihat apakah hasilnya sesuai harapan saya.
